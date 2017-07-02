@@ -1,7 +1,11 @@
 module Fibonacci exposing (..)
 
 fibonacci : Int -> Int
-fibonacci n = 0
+fibonacci n =
+    case n of
+        1 -> 1
+        2 -> 1
+        _ -> fibonacci (n-1) + fibonacci (n-2)
 
 test : Bool
 test = test1

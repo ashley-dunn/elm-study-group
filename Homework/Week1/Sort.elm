@@ -1,7 +1,9 @@
 module Sort exposing (..)
 
+import List exposing (..)
+
 sort : List Int -> List Int
-sort list = list
+sort list = List.sort list
 
 test = testEmptyList
     && testSingletonList

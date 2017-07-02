@@ -1,7 +1,11 @@
 module Factorial exposing (..)
 
 factorial : Int -> Int
-factorial n = 0
+factorial n =
+    if n < 2 then
+        1
+    else
+        n * factorial(n-1)
 
 test : Bool
 test = test0
