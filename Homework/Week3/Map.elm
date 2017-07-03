@@ -1,7 +1,11 @@
 module Map exposing (..)
 
 map : (a -> b) -> List a -> List b
-map func list = []
+map func list =
+    case list of
+        [] -> [] -- is there a better way to do this? returning list throws a type error
+        a::rest ->
+            func a :: map func rest
 
 test : Bool
 test = testMapEmptyList

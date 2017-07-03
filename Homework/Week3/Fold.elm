@@ -1,7 +1,11 @@
 module Fold exposing (..)
 
 fold : (a -> b -> b) -> b -> List a -> b
-fold func start list = start
+fold func start list =
+    case list of
+        [] -> start
+        a::rest ->
+            func a (fold func start rest)
 
 test : Bool
 test = testFoldEmptyListEmptyStart

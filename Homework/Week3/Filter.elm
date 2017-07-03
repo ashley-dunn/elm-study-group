@@ -3,7 +3,14 @@ module Filter exposing (..)
 import Arithmetic
 
 filter : (a -> Bool) -> List a -> List a
-filter predicate list = list
+filter predicate list =
+    case list of
+        [] -> list
+        a::rest ->
+            if predicate a then
+                a :: filter predicate rest
+            else
+                filter predicate rest
 
 test : Bool
 test = testEmptyList

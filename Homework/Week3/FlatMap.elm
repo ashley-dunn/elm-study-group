@@ -3,7 +3,11 @@ module FlatMap exposing (..)
 import Arithmetic
 
 flatMap : (a -> List b) -> List a -> List b
-flatMap transform list = []
+flatMap transform list =
+    case list of
+        [] -> []
+        a::rest ->
+            transform a ++ flatMap transform rest
 
 test : Bool
 test = testEmptyList
